@@ -17,10 +17,7 @@ pkgsender = {
 	end
 }
 
-reactors = {}
-
 rserver = {
-    id = "Main Reactor",
 	getEnergyStored = function (self, port)
                     local newpkg = {
                         request = "getEnergyStored"
@@ -94,7 +91,11 @@ currentReactor = {
 
 ---- model
 model = {
-	views = {}.
+	views = {},
+	reactors = {},
+	addReactors = function (self, name, port)
+	                  self.reactors[name] = port
+	              end
 	addView = function (self, name, v)
 	              views[name] = v;
 	          end,
